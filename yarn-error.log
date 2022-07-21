@@ -1,0 +1,59 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarnpkg install
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  16.14.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/mz/-/mz-2.7.0.tgz: Request failed "503 Service Unavailable"
+      at ResponseError.ExtendableBuiltin (/usr/local/lib/node_modules/yarn/lib/cli.js:696:66)
+      at new ResponseError (/usr/local/lib/node_modules/yarn/lib/cli.js:802:124)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:66208:16)
+      at Request.emit (node:events:520:28)
+      at Request.module.exports.Request.onRequestResponse (/usr/local/lib/node_modules/yarn/lib/cli.js:141760:10)
+      at ClientRequest.emit (node:events:520:28)
+      at HTTPParser.parserOnIncomingClient (node:_http_client:618:27)
+      at HTTPParser.parserOnHeadersComplete (node:_http_common:128:17)
+      at HTTPParser.execute (<anonymous>)
+      at TLSSocket.socketOnData (node:_http_client:482:22)
+
+npm manifest: 
+  {
+    "name": "rn-first-app",
+    "version": "1.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "~45.0.0",
+      "expo-status-bar": "~1.3.0",
+      "react": "17.0.2",
+      "react-dom": "17.0.2",
+      "react-native": "0.68.2",
+      "react-native-web": "0.17.7"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
