@@ -9,6 +9,7 @@ import {
   Pressable,
   FlatList,
 } from "react-native";
+import GoalItem from "./components/GoalItem";
 
 export default function App() {
   const [enteredText, setEnteredText] = useState("");
@@ -43,16 +44,8 @@ export default function App() {
       <FlatList
         keyExtractor={(item, index) => item.key}
         data={courseGoals}
-        renderItem={(itemData) => (
-          <View style={styles.textContainer}>
-            <Text style={styles.text1}>{itemData.item.value} </Text>
-          </View>
-        )}
+        renderItem={(itemData) => <GoalItem title={itemData.item.value} />}
       />
-      {/* List of items */}
-      {/* {courseGoals.map((goal) => (
-         
-        ))} */}
     </View>
   );
 }
@@ -81,13 +74,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
-  },
-  text1: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: "bold",
-    letterSpacing: 0.25,
-    color: "black",
   },
 
   textContainer: {
