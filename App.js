@@ -6,12 +6,14 @@ import {
   ScrollView,
   Pressable,
   FlatList,
+  Button,
 } from "react-native";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const addGoalEntered = (goalTitle) => {
     // console.log(enteredText);
@@ -19,7 +21,7 @@ export default function App() {
       ...currentGoals,
       { key: Math.random().toString(), value: goalTitle },
     ]);
-    console.log(courseGoals);
+    setIsOpen(false);
   };
 
   const removeGoalHandler = (goalId) => {
@@ -27,10 +29,18 @@ export default function App() {
       return currentGoals.filter((goal) => goal.key !== goalId);
     });
   };
+  const cancelModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <View style={styles.screen}>
-      <GoalInput onAddGoal={addGoalEntered} />
+      <Button title="Add New Goal" onPress={() => setIsOpen(true)} />
+      <GoalInput
+        visible={isOpen}
+        onAddGoal={addGoalEntered}
+        onCancel={cancelModal}
+      />
       <FlatList
         keyExtractor={(item, index) => item.key}
         data={courseGoals}
