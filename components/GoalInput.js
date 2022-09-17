@@ -36,10 +36,12 @@ const GoalInput = ({ onCancel, onAddGoal, visible }) => {
           value={enteredText}
         />
 
-        <Pressable style={styles.button} onPress={addGoalHandler}>
-          <Text style={styles.text}>save</Text>
-        </Pressable>
-        <Button title="Cancel" color="red" onPress={onCancel} />
+        <View style={styles.buttons}>
+          <Pressable style={styles.button} onPress={addGoalHandler}>
+            <Text style={styles.text}>save</Text>
+          </Pressable>
+          <Button title="Cancel" color="red" onPress={onCancel} />
+        </View>
       </View>
     </Modal>
   );
@@ -66,6 +68,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
+  },
+  buttons: {
+    width: "80%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
 
